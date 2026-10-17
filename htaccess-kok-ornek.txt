@@ -1,5 +1,6 @@
-# Alan adınız public/ klasörüne yönlendirilemiyorsa (paylaşımlı hosting) bu
-# dosya istekleri public/ klasörüne aktarır ve gizli dosyalara erişimi engeller.
+# İSTEĞE BAĞLI: Alan adınızı public/ klasörüne yönlendiremiyorsanız bu dosyayı
+# kök dizinde ".htaccess" olarak yeniden adlandırın. Belge kökü public/ ise KULLANMAYIN;
+# bazı sunucular (ör. Hestia) bu dosyadaki yönergelere izin vermez ve 500 hatası verir.
 <IfModule mod_rewrite.c>
     RewriteEngine On
 

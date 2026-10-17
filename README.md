@@ -43,7 +43,7 @@
 1. [Son sürüm sayfasından](https://github.com/webdanismani/laravel-portfolyo/releases/latest) `laravel-portfolyo-vX.Y.Z.zip` dosyasını indirin. *(Bu paket `vendor/` klasörünü içerir; Composer gerekmez.)*
 2. Dosyaları sunucunuza yükleyip çıkartın.
 3. Alan adınızın kök dizinini **`public/`** klasörüne yönlendirin.
-   *Bu mümkün değilse dosyaları olduğu gibi `public_html` içine çıkartın; kök dizindeki `.htaccess` istekleri otomatik olarak `public/` klasörüne yönlendirir.*
+   *Bu mümkün değilse dosyaları `public_html` içine çıkartın ve kök dizindeki `htaccess-kok-ornek.txt` dosyasının adını `.htaccess` yapın; istekler otomatik olarak `public/` klasörüne yönlendirilir.*
 4. Sunucunuzda bir MySQL veritabanı oluşturun.
 5. Tarayıcıdan sitenizi açın → **kurulum sihirbazı** otomatik açılır. Veritabanı ve yönetici bilgilerini girin. Bitti! 🎉
 

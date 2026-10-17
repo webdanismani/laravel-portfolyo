@@ -2,6 +2,12 @@
 
 Tüm önemli değişiklikler bu dosyada listelenir.
 
+## [1.0.1] — 2026-10-17
+
+### Düzeltilenler
+
+- Kök dizindeki yönlendirme `.htaccess` dosyası, belge kökü `public/` olan bazı sunucularda (ör. Hestia) 500 hatasına yol açıyordu. Dosya artık isteğe bağlı `htaccess-kok-ornek.txt` olarak geliyor.
+
 ## [1.0.0] — 2026-10-17
 
 İlk sürüm.
