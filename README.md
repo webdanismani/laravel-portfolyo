@@ -16,6 +16,17 @@
 
 ---
 
+![Laravel Portfolyo](tanitim/01-kapak.jpg)
+
+## 🖼️ Ekran görüntüleri
+
+| | |
+| --- | --- |
+| ![Tüm cihazlar](tanitim/02-cihazlar.jpg) | ![Açık ve koyu görünüm](tanitim/03-acik-koyu.jpg) |
+| ![Tam sayfa](tanitim/04-tam-sayfa.jpg) | ![Koyu tam sayfa](tanitim/05-koyu-tam-sayfa.jpg) |
+| ![Mobil](tanitim/06-mobil.jpg) | ![Canlı önizlemeli tema düzenleyici](tanitim/07-tema-duzenleyici.jpg) |
+| ![Yönetim paneli](tanitim/08-yonetim-paneli.jpg) | ![Blog](tanitim/09-blog.jpg) |
+
 ## ✨ Özellikler
 
 - 🎨 **Canlı önizlemeli tema düzenleyici** — Sitedeki *tüm* metinleri, görselleri, bağlantıları, renkleri ve listeleri yazdıkça önizlemede görün. Masaüstü / tablet / mobil görünüm, önizlemede tıkla-düzenle, alan arama.

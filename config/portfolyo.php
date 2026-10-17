@@ -3,7 +3,7 @@
 return [
 
     // Yazılım sürümü (yönetim panelinin altında görünür).
-    'surum' => '1.0.1',
+    'surum' => '1.1.0',
 
     // Web kurulum sihirbazı tamamlandığında .env içinde true yapılır.
     'kuruldu' => (bool) env('APP_INSTALLED', false),

@@ -2,6 +2,18 @@
 
 Tüm önemli değişiklikler bu dosyada listelenir.
 
+## [1.1.0] — 2026-10-17
+
+### Eklenenler
+
+- Demo içerik için gerçek fotoğraflar: profil, hakkımda, referanslar, proje ve blog kapakları (Unsplash Lisansı, kaynaklar `public/assets/img/foto/KAYNAKLAR.md`)
+- Tanıtım görselleri (`tanitim/`) ve README ekran görüntüleri
+
+### Değişenler
+
+- Giriş bölümündeki profil fotoğrafı kemer biçiminde gösteriliyor; mobilde de görünüyor
+- Mobilde "iletişime geç" dairesi fotoğrafın yanına alındı
+
 ## [1.0.1] — 2026-10-17
 
 ### Düzeltilenler
