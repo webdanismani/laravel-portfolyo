@@ -36,7 +36,8 @@ jobs:
           rsync -a ./ "dist/${AD}/" \
             --exclude '.git' --exclude '.github' --exclude 'dist' --exclude 'tests' \
             --exclude 'phpunit.xml' --exclude '.env' --exclude '.editorconfig' \
-            --exclude 'storage/logs/*.log' --exclude 'bootstrap/cache/*.php'
+            --exclude 'storage/logs/*.log' --exclude 'bootstrap/cache/*.php' \
+            --exclude 'composer.lock' --exclude 'vendor/**/*.md' --exclude 'vendor/**/.github'
           (cd dist && zip -qr "${AD}.zip" "${AD}")
           echo "dosya=dist/${AD}.zip" >> "$GITHUB_OUTPUT"
 
