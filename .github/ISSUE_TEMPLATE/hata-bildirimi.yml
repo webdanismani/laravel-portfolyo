@@ -1,0 +1,54 @@
+name: 🐞 Hata bildirimi
+description: Yazılımda karşılaştığınız bir hatayı bildirin
+title: "[Hata] "
+labels: ["hata"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bildiriminiz için teşekkürler! Kurulum veya kullanım **soruları** için lütfen [oblifex.com](https://oblifex.com) destek forumunu kullanın; orada çok daha hızlı yanıt alırsınız.
+  - type: input
+    id: surum
+    attributes:
+      label: Yazılım sürümü
+      description: Yönetim paneli → Ayarlar → Sistem
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: ortam
+    attributes:
+      label: PHP sürümü ve barındırma
+      placeholder: "PHP 8.3, cPanel / LiteSpeed, MySQL 8"
+    validations:
+      required: true
+  - type: textarea
+    id: aciklama
+    attributes:
+      label: Ne oldu?
+      description: Hatayı ve beklediğiniz davranışı açıklayın.
+    validations:
+      required: true
+  - type: textarea
+    id: adimlar
+    attributes:
+      label: Yeniden üretme adımları
+      placeholder: |
+        1. Yönetim → Tema Düzenleyici'ye gidin
+        2. ...
+        3. Hata oluşuyor
+    validations:
+      required: true
+  - type: textarea
+    id: gunluk
+    attributes:
+      label: Hata günlüğü
+      description: "`storage/logs/laravel.log` içindeki ilgili satırlar (şifre gibi gizli bilgileri silin)"
+      render: text
+  - type: checkboxes
+    id: onay
+    attributes:
+      label: Onay
+      options:
+        - label: Son sürümü kullandığımı ve benzer bir bildirim olmadığını kontrol ettim.
+          required: true

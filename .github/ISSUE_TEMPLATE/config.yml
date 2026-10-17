@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Oblifex Destek Forumu
+    url: https://oblifex.com
+    about: Kurulum, kullanım ve özelleştirme sorularınız için topluluk forumumuz. Sorularınızı burada sorun!
+  - name: 🌐 webdanismani.com — Profesyonel hizmet
+    url: https://webdanismani.com
+    about: Kurulum, özel tasarım ve geliştirme hizmetleri.
+  - name: ⚖️ Lisans ihlali / izinsiz satış bildirimi
+    url: https://webdanismani.com
+    about: Yazılımın satışa sunulduğunu gördüyseniz bize bildirin. Tespit edilen ihlallere DMCA politikası uygulanır.
+  - name: 🔒 Güvenlik açığı bildirimi
+    url: https://github.com/webdanismani/laravel-portfolyo/security/advisories/new
+    about: Güvenlik açıklarını lütfen herkese açık issue yerine özel olarak bildirin.

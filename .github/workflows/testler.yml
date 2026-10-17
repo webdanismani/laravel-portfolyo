@@ -1,0 +1,44 @@
+name: Testler
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  testler:
+    name: PHP ${{ matrix.php }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.3', '8.4']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: PHP kurulumu
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, pdo_sqlite, fileinfo, intl
+          coverage: none
+
+      - name: Composer bağımlılıkları
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Sözdizimi denetimi
+        run: find app bootstrap config database lang routes tests -name '*.php' -print0 | xargs -0 -n1 php -l > /dev/null
+
+      - name: Blade şablonlarını derle
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+          php artisan view:cache
+
+      - name: Testler
+        run: php artisan test

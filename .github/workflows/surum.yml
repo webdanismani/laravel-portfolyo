@@ -1,0 +1,56 @@
+name: Sürüm paketi
+
+# "v1.2.3" biçiminde bir etiket gönderildiğinde vendor/ dahil, paylaşımlı
+# hostinge doğrudan yüklenebilen bir ZIP üretir ve GitHub sürümüne ekler.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  paket:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: PHP kurulumu
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, pdo_sqlite, fileinfo
+          coverage: none
+
+      - name: Üretim bağımlılıkları
+        run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --no-progress
+
+      - name: Paketi hazırla
+        id: paket
+        run: |
+          SURUM="${GITHUB_REF_NAME}"
+          [ "${GITHUB_REF_TYPE}" = "tag" ] || SURUM="gelistirme-${GITHUB_SHA::7}"
+          AD="laravel-portfolyo-${SURUM}"
+          mkdir -p "dist/${AD}"
+          rsync -a ./ "dist/${AD}/" \
+            --exclude '.git' --exclude '.github' --exclude 'dist' --exclude 'tests' \
+            --exclude 'phpunit.xml' --exclude '.env' --exclude '.editorconfig' \
+            --exclude 'storage/logs/*.log' --exclude 'bootstrap/cache/*.php'
+          (cd dist && zip -qr "${AD}.zip" "${AD}")
+          echo "dosya=dist/${AD}.zip" >> "$GITHUB_OUTPUT"
+
+      - name: Yapıt olarak sakla
+        uses: actions/upload-artifact@v4
+        with:
+          name: laravel-portfolyo
+          path: ${{ steps.paket.outputs.dosya }}
+
+      - name: GitHub sürümüne ekle
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view "${GITHUB_REF_NAME}" > /dev/null 2>&1 \
+            || gh release create "${GITHUB_REF_NAME}" --title "Laravel Portfolyo ${GITHUB_REF_NAME}" --notes-file CHANGELOG.md
+          gh release upload "${GITHUB_REF_NAME}" "${{ steps.paket.outputs.dosya }}" --clobber
